@@ -9,6 +9,7 @@ steps:
     - name: dockersock
       path: /var/run
     commands:
+      - sleep 5
       - docker build . -t niklasrosenstein/jagrosh-musicbot:latest
       - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_TOKEN"
       - docker push niklasrosenstein/jagrosh-musicbot:latest
