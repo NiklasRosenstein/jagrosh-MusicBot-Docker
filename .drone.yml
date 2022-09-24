@@ -13,7 +13,7 @@ steps:
       DOCKER_TOKEN: { from_secret: docker_token }
     commands:
       - sleep 5
-      - docker build . -t niklasrosenstein/jagrosh-musicbot:latest --build-arg VERSION=0.3.8
+      - docker build . -t niklasrosenstein/jagrosh-musicbot:latest --cache-from niklasrosenstein/jagrosh-musicbot:latest --build-arg VERSION=0.3.8
       - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_TOKEN"
       - docker push niklasrosenstein/jagrosh-musicbot:latest
 
