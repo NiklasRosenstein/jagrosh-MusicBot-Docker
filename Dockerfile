@@ -15,7 +15,7 @@ WORKDIR /opt/app
 # Download the application.
 ARG VERSION
 ENV VERSION $VERSION
-RUN curl -vsfL https://github.com/jagrosh/MusicBot/releases/download/${VERSION}/JMusicBot-${VERSION}-Linux.jar > JMusicBot-${VERSION}.jar
+RUN curl -vsfL https://github.com/jagrosh/MusicBot/releases/download/${VERSION}/JMusicBot-${VERSION}.jar > JMusicBot-${VERSION}.jar
 
 # We run the bot from a separate directory where we write the configuration file to.
 RUN mkdir -p /opt/app/config
