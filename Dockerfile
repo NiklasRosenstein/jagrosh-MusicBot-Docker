@@ -24,4 +24,3 @@ WORKDIR /opt/app/config
 # Render the configuration file from environment variables,
 # and then start the bot.
 CMD java -Dnogui=true -jar /opt/app/JMusicBot-${VERSION}.jar
-
