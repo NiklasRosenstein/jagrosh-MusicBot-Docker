@@ -9,13 +9,13 @@ steps:
     - name: dockersock
       path: /var/run
     environment:
-      DOCKER_USERNAME: { from_secret: docker_username }
-      DOCKER_TOKEN: { from_secret: docker_token }
+      DOCKER_USERNAME: { from_secret: username }
+      DOCKER_TOKEN: { from_secret: token }
     commands:
       - sleep 5
-      - docker build . -t niklasrosenstein/jagrosh-musicbot:latest --cache-from niklasrosenstein/jagrosh-musicbot:latest --build-arg VERSION=0.3.8
-      - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_TOKEN"
-      - docker push niklasrosenstein/jagrosh-musicbot:latest
+      - TAG=gitea.nkl.st/niklasrosenstein/jagrosh-musicbot:latest
+      - docker login gitea.nkl.st -u "$DOCKER_USERNAME" -p "$DOCKER_TOKEN"
+      - docker push $TAG --build-arg VERSION=0.3.8
 
 services:
 - name: docker
@@ -30,14 +30,14 @@ volumes:
 
 ---
 kind: secret
-name: docker_username
+name: username
 get:
-  path: kv/data/hub.docker.com
+  path: kv/data/gitea.nkl.st
   name: username
 
 ---
 kind: secret
-name: docker_token
+name: token
 get:
-  path: kv/data/hub.docker.com
+  path: kv/data/gitea.nkl.st
   name: token
