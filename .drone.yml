@@ -15,7 +15,8 @@ steps:
       - sleep 5
       - TAG=gitea.nkl.st/niklasrosenstein/jagrosh-musicbot:latest
       - docker login gitea.nkl.st -u "$DOCKER_USERNAME" -p "$DOCKER_TOKEN"
-      - docker push $TAG --build-arg VERSION=0.3.8
+      - docker build . -t $TAG --cache-from $TAG --build-arg VERSION=0.3.8
+      - docker push $TAG
 
 services:
 - name: docker
