@@ -1,3 +1,6 @@
+environment:
+  VERSION: "0.3.9"
+
 steps:
   docker-build:
     # https://woodpecker-ci.org/plugins/Docker%20Buildx
@@ -12,5 +15,3 @@ steps:
         from_secret: harbor_user
       password:
         from_secret: harbor_password
-    environment:
-      VERSION: "0.3.9"
