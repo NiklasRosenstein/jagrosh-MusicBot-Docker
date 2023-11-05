@@ -10,7 +10,7 @@ steps:
       repo: harbor.nkl.st/${CI_REPO,,}
       registry: harbor.nkl.st
       tags: latest,${VERSION}
-      cache_from: "type=registry,ref=harbor.nkl.st/${CI_REPO,,}:${VERSION}"
+      cache_from: "type=registry,ref=harbor.nkl.st/${CI_REPO,,}"
       build_args:
         - VERSION=${VERSION}
       username:
