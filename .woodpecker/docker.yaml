@@ -3,7 +3,7 @@ steps:
     # https://woodpecker-ci.org/plugins/Docker%20Buildx
     image: woodpeckerci/plugin-docker-buildx
     settings:
-      repo: harbor.nkl.st/${CI_REPO}
+      repo: harbor.nkl.st/${CI_REPO,,}
       registry: harbor.nkl.st
       tags: latest
       username:
