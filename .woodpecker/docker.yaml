@@ -10,8 +10,9 @@ steps:
       repo: harbor.nkl.st/${CI_REPO,,}
       registry: harbor.nkl.st
       tags: latest,${VERSION}
-      cache_from:
-        - "ref=harbor.nkl.st/${CI_REPO,,}:${VERSION}"
+      # Can't use that because of https://codeberg.org/woodpecker-plugins/docker-buildx/issues/70
+      # cache_from:
+      #   - "type=registry,ref=harbor.nkl.st/${CI_REPO,,}:${VERSION}"
       build_args:
         - VERSION=${VERSION}
       username:
