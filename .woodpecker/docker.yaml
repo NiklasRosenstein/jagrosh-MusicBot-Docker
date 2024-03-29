@@ -7,12 +7,12 @@ steps:
     # https://woodpecker-ci.org/plugins/Docker%20Buildx
     image: woodpeckerci/plugin-docker-buildx
     settings:
-      repo: harbor.nkl.st/${CI_REPO,,}
-      registry: harbor.nkl.st
+      repo: harbor.rosenstein.app/${CI_REPO,,}
+      registry: harbor.rosenstein.app
       tags: latest,${VERSION}
       # Can't use that because of https://codeberg.org/woodpecker-plugins/docker-buildx/issues/70
       # cache_from:
-      #   - "type=registry,ref=harbor.nkl.st/${CI_REPO,,}:${VERSION}"
+      #   - "type=registry,ref=harbor.rosenstein.app/${CI_REPO,,}:${VERSION}"
       build_args:
         - VERSION=${VERSION}
       username:
