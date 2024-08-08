@@ -34,8 +34,8 @@ jobs:
           context: .
           push: true
           tags: |
-            ghcr.io/niklasrosenstein/jagrosh-musicbot-docker:latest
-            ${{ env.LATEST_VERSION == 'latest' && format('ghcr.io/niklasrosenstein/jagrosh-musicbot-docker:latest', matrix.VERSION) || '' }}
+            ghcr.io/niklasrosenstein/jagrosh-musicbot-docker:${{ matrix.VERSION }}
+            ${{ env.LATEST_VERSION == matrix.VERSION && format('ghcr.io/niklasrosenstein/jagrosh-musicbot-docker:latest', matrix.VERSION) || '' }}
           build-args: |
             VERSION=${{ matrix.VERSION }}
           cache-from: |
