@@ -2,7 +2,7 @@ FROM alpine/curl as downloader
 
 # Download the application.
 ARG VERSION
-RUN curl -vsfL https://github.com/jagrosh/MusicBot/releases/download/${VERSION}/JMusicBot-${VERSION}.jar > JMusicBot-${VERSION}.jar
+RUN curl -sfL https://github.com/jagrosh/MusicBot/releases/download/${VERSION}/JMusicBot-${VERSION}.jar > JMusicBot-${VERSION}.jar
 
 FROM openjdk:22
 
