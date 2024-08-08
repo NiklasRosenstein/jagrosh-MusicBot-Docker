@@ -32,9 +32,9 @@ jobs:
           context: .
           push: true
           tags: |
-            ghcr.io/NiklasRosenstein/jagrosh-musicbot-docker:latest
-            ${{ matrix.LATEST_VERSION == 'latest' && format('ghcr.io/NiklasRosenstein/jagrosh-musicbot-docker:latest', matrix.VERSION) || '' }}
+            ghcr.io/niklasrosenstein/jagrosh-musicbot-docker:latest
+            ${{ matrix.LATEST_VERSION == 'latest' && format('ghcr.io/niklasrosenstein/jagrosh-musicbot-docker:latest', matrix.VERSION) || '' }}
           build-args: |
             VERSION=${{ matrix.VERSION }}
           cache-from: |
-            type=registry,ref=ghcr.io/NiklasRosenstein/jagrosh-musicbot-docker:${{ matrix.VERSION }}
+            type=registry,ref=ghcr.io/niklasrosenstein/jagrosh-musicbot-docker:${{ matrix.VERSION }}
