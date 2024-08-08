@@ -4,13 +4,15 @@ on:
   push:
     branches: ["main"]
 
+env:
+  LATEST_VERSION: "0.4.3"
+
 jobs:
   docker-build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         VERSION: ["0.4.0", "0.4.1", "0.4.2", "0.4.3"]
-        LATEST_VERSION: ["0.4.3"]
 
     steps:
       - name: Checkout code
@@ -33,7 +35,7 @@ jobs:
           push: true
           tags: |
             ghcr.io/niklasrosenstein/jagrosh-musicbot-docker:latest
-            ${{ matrix.LATEST_VERSION == 'latest' && format('ghcr.io/niklasrosenstein/jagrosh-musicbot-docker:latest', matrix.VERSION) || '' }}
+            ${{ env.LATEST_VERSION == 'latest' && format('ghcr.io/niklasrosenstein/jagrosh-musicbot-docker:latest', matrix.VERSION) || '' }}
           build-args: |
             VERSION=${{ matrix.VERSION }}
           cache-from: |
