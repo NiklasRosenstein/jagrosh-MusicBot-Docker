@@ -1,4 +1,4 @@
-FROM alpine/curl as downloader
+FROM alpine/curl AS downloader
 
 # Download the application.
 ARG VERSION
@@ -12,4 +12,4 @@ ENV VERSION=${VERSION}
 COPY --from=downloader /JMusicBot-${VERSION}.jar /opt/app/JMusicBot-${VERSION}.jar
 
 WORKDIR /opt/app/config
-CMD java -Dnogui=true -jar /opt/app/JMusicBot-${VERSION}.jar
+CMD ["java", "-Dnogui=true", "-jar", "/opt/app/JMusicBot-${VERSION}.jar"]
