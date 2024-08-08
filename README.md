@@ -1,5 +1,3 @@
-# MusicBot
-
-<a href="https://ci.git.nkl.st/repos/3"><img src="https://ci.git.nkl.st/api/badges/3/status.svg"></a>
+# jagrosh-MusicBot-docker
 
 Produces a Docker image for https://github.com/jagrosh/MusicBot
